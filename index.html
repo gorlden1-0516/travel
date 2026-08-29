@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>家族旅遊 ‧ 南投日月潭兩日（8/30–8/31）</title>
+<style>
+  :root{
+    --ink:#2b2a26; --ink-soft:#6b6558; --line:#e8e3d9;
+    --paper:#faf8f3; --card:#ffffff;
+    --tea:#6b7f4e; --tea-lt:#eef2e7;
+    --clay:#b5713f; --clay-lt:#fbf0e6;
+    --lake:#3d7a8c; --lake-lt:#e8f1f4;
+    --wood:#8a6a4a; --wood-lt:#f4ede4;
+    --alert:#b4553f; --alert-lt:#fbeeea;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+    background:var(--paper); color:var(--ink); line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:880px;margin:0 auto;padding:0 16px 64px}
+
+  header{
+    background:linear-gradient(135deg,#4a6b52 0%,#6b7f4e 50%,#9aa870 100%);
+    color:#fff;padding:38px 16px 30px;text-align:center;
+  }
+  header .kicker{font-size:13px;letter-spacing:.28em;opacity:.85}
+  header h1{font-size:27px;font-weight:800;margin:8px 0 6px;letter-spacing:.02em}
+  header .sub{font-size:15px;opacity:.92}
+  .route{margin-top:16px;font-size:13px;background:rgba(255,255,255,.16);display:inline-block;padding:7px 16px;border-radius:999px}
+  .verified{margin-top:12px;font-size:12px;opacity:.9}
+
+  .members{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:18px 0 4px}
+  .m{background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px 13px;font-size:13px;color:var(--ink-soft)}
+  .m b{color:var(--ink);font-weight:700}
+
+  nav{position:sticky;top:0;z-index:20;background:rgba(250,248,243,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:10px 0;margin-bottom:26px}
+  .tabs{display:flex;gap:8px;max-width:880px;margin:0 auto;padding:0 16px}
+  .tab{flex:1;border:1px solid var(--line);background:#fff;border-radius:12px;padding:9px 6px;font:inherit;font-size:13.5px;color:var(--ink-soft);cursor:pointer;text-align:center;transition:.18s}
+  .tab b{display:block;font-size:15px;color:var(--ink);font-weight:700}
+  .tab.on{background:var(--tea);border-color:var(--tea);color:rgba(255,255,255,.85)}
+  .tab.on b{color:#fff}
+
+  .day{display:none}
+  .day.on{display:block;animation:fade .3s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .day-head{margin-bottom:22px}
+  .day-head h2{font-size:21px;font-weight:800}
+  .day-head p{color:var(--ink-soft);font-size:14px;margin-top:4px}
+
+  .tl{position:relative;padding-left:26px}
+  .tl::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--tea),#d6dfc9)}
+  .item{position:relative;margin-bottom:22px}
+  .item::before{content:"";position:absolute;left:-25px;top:16px;width:12px;height:12px;border-radius:50%;background:#fff;border:3px solid var(--tea)}
+  .item.drive::before{border-color:#b3aea2}
+  .item.meal::before{border-color:var(--clay)}
+  .item.stay::before{border-color:var(--lake)}
+  .item.play::before{border-color:var(--wood)}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:0 1px 2px rgba(43,42,38,.04)}
+  .time{font-size:12.5px;font-weight:700;letter-spacing:.04em;color:var(--tea);background:var(--tea-lt);display:inline-block;padding:2px 9px;border-radius:6px}
+  .drive .time{color:#6b6558;background:#f0eee9}
+  .meal .time{color:#9a5c2e;background:var(--clay-lt)}
+  .stay .time{color:#2f6273;background:var(--lake-lt)}
+  .play .time{color:#75593d;background:var(--wood-lt)}
+  .dur{font-size:12px;color:#9a948a;margin-left:8px}
+  .gm{font-size:11.5px;color:#2a7d5f;background:#e8f4ee;border-radius:5px;padding:2px 7px;margin-left:6px;white-space:nowrap}
+
+  .card h3{font-size:17px;font-weight:700;margin:9px 0 6px}
+  .card p{font-size:14.5px;color:var(--ink-soft)}
+  .card p + p{margin-top:8px}
+
+  ul.pts{margin:9px 0 0 4px;list-style:none}
+  ul.pts li{font-size:14.5px;color:var(--ink-soft);padding-left:18px;position:relative;margin-bottom:5px}
+  ul.pts li::before{content:"";position:absolute;left:2px;top:11px;width:5px;height:5px;border-radius:50%;background:#c4bdb0}
+  ul.pts li b{color:var(--ink);font-weight:600}
+
+  .note{margin-top:12px;border-radius:10px;padding:11px 14px;font-size:13.5px;border-left:3px solid}
+  .note .lbl{font-weight:700;display:block;margin-bottom:2px;font-size:13px}
+  .acc{background:var(--alert-lt);border-color:var(--alert);color:#7d3a29}
+  .acc .lbl{color:var(--alert)}
+  .tip{background:#f3f2ee;border-color:#a39c8e;color:#5a5449}
+  .tip .lbl{color:#6b6558}
+  .good{background:var(--tea-lt);border-color:var(--tea);color:#4d5e3a}
+  .good .lbl{color:var(--tea)}
+
+  .meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;padding-top:11px;border-top:1px dashed var(--line)}
+  .meta a,.meta span{font-size:12.5px;text-decoration:none;color:var(--ink-soft);background:#f5f3ee;border-radius:7px;padding:4px 10px}
+  .meta a:hover{background:var(--tea);color:#fff}
+
+  .who{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}
+  .who span{font-size:12px;padding:2px 9px;border-radius:999px;background:#f0f3ea;color:#5b6b45;border:1px solid #dde4d1}
+
+  .split{display:grid;gap:10px;margin-top:10px}
+  @media(min-width:620px){.split{grid-template-columns:1fr 1fr}}
+  .split > div{background:#fbfaf7;border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+  .split h4{font-size:14px;font-weight:700;margin-bottom:4px}
+  .split p{font-size:13.5px;color:var(--ink-soft)}
+
+  .block{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;margin-top:30px}
+  .block h3{font-size:17px;font-weight:800;margin-bottom:10px}
+  .block > p.intro{font-size:13.5px;color:var(--ink-soft);margin-bottom:12px}
+  table{width:100%;border-collapse:collapse;font-size:13.5px}
+  th,td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--ink-soft);font-weight:600;font-size:12.5px;white-space:nowrap}
+  td a{color:var(--tea);text-decoration:none}
+  td.num{white-space:nowrap;font-variant-numeric:tabular-nums}
+  td.d-ok{color:#9a948a;white-space:nowrap}
+  td.d-up{color:#b4553f;font-weight:700;white-space:nowrap}
+  tr.hi td{background:var(--alert-lt)}
+
+  footer{text-align:center;color:#a39c8e;font-size:12.5px;margin-top:34px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="kicker">FAMILY TRIP ‧ NANTOU 2026</div>
+  <h1>南投 ‧ 日月潭 兩日家族旅遊</h1>
+  <div class="sub">8月30日（日）～ 8月31日（一）</div>
+  <div class="route">台北 → 銅鑼 → 車埕 → 日月潭 → 水里 → 泰安 → 台北</div>
+  <div class="verified">✓ 每一段車程與營業時間都已逐一確認</div>
+</header>
+
+<div class="wrap">
+
+  <div class="members">
+    <div class="m"><b>主駕</b></div>
+    <div class="m"><b>媽媽</b> 長輩 ‧ 需放慢節奏</div>
+    <div class="m"><b>姐姐</b></div>
+    <div class="m"><b>小阿姨</b> 松山上下車</div>
+    <div class="m"><b>表妹</b></div>
+    <div class="m" style="background:#f0f3ea;border-color:#dde4d1;color:#5b6b45">共 <b>5 人</b></div>
+  </div>
+
+  <nav>
+    <div class="tabs">
+      <button class="tab on" data-d="1"><b>Day 1</b>8/30 日 ‧ 銅鑼→車埕→日月潭</button>
+      <button class="tab" data-d="2"><b>Day 2</b>8/31 一 ‧ 魚池→水里→返程</button>
+    </div>
+  </nav>
+
+  <!-- ================= DAY 1 ================= -->
+  <section class="day on" id="d1">
+    <div class="day-head">
+      <h2>Day 1｜出發 → 接小阿姨 → 臺灣客家文化館 → 車埕 → 日月潭</h2>
+      <p>今天車程較長，上午在<b>苗栗銅鑼的臺灣客家文化館</b>停留約 1 小時 35 分——它剛好在路程一半，館內全室內有冷氣，是 8 月最舒服的休息點。<br><span style="color:var(--tea)"><b>下午開始就輕鬆了：澄石新天畝與林班道體驗工廠都在車埕民權巷，走路 2 分鐘；晚上的住宿與麓司岸餐坊只隔 220 公尺。</b>從中午到睡前幾乎不用再開車。</span></p>
+    </div>
+
+    <div class="tl">
+
+      <div class="item drive">
+        <div class="card">
+          <span class="time">07:00 – 07:55</span><span class="gm">Google Maps 53 分 ‧ 33.2 km</span>
+          <h3>出發 → 松山接送點接小阿姨</h3>
+          <p>週日早上市區路況輕鬆，約 53 分鐘可到。預留 5 分鐘停等與上車放行李，<b>08:00 準時出發</b>。</p>
+          <div class="note tip"><span class="lbl">上車安排</span>媽媽建議坐<b>右後座</b>（人行道側），上下車較好扶。行動輔具放後車廂上層方便中途取用。請小阿姨 <b>07:55 就在路邊等</b>，接送點路邊不好久停。</div>
+          <div class="who"><span>主駕</span><span>媽媽</span><span>姐姐</span><span>表妹</span></div>
+        </div>
+      </div>
+
+      <div class="item drive">
+        <div class="card">
+          <span class="time">08:00 – 09:45</span><span class="gm">Google Maps 1 小時 44 分 ‧ 129 km</span>
+          <h3>松山 → 臺灣客家文化館（苗栗銅鑼）</h3>
+          <p>國道 1 號或國道 3 號南下至銅鑼交流道，園區就在交流道旁的銅科南路。導航主推的兩條路線時間相同，照導航走即可。</p>
+          <div class="note tip"><span class="lbl">為什麼停銅鑼</span>銅鑼幾乎就在台北到車埕的直線上，<b>繞這一站只多 17 分鐘</b>，卻能換到一個有冷氣、有無障礙設施的休息點，是這段路上最划算的安排。</div>
+          <div class="who"><span>全員</span></div>
+        </div>
+      </div>
+
+      <div class="item play">
+        <div class="card">
+          <span class="time">09:45 – 11:20</span><span class="dur">停留 1 小時 35 分</span>
+          <h3>🏛 臺灣客家文化館（苗栗客家文化園區）</h3>
+          <p>客委會客家文化發展中心經營的旗艦館，占地 4.32 公頃，由日本建築師規劃。最有名的是<b>橫跨山谷的玻璃空橋</b>，兩側落地玻璃可以看到銅鑼的丘陵與桐花步道；館內有常設展、客庄兒童館、客家擂茶互動體驗，甚至把整座客家合院搬進展場。</p>
+          <ul class="pts">
+            <li><b>開放時間</b>　09:00–17:00，<b>週二休館</b>（8/30 是星期日，正常開館）。</li>
+            <li><b>免門票</b>　入館完全免費，只需付停車費。</li>
+            <li><b>停車</b>　附設收費停車場小客車 122 席，每次 50 元；<b>身心障礙車位 4 席免費</b>。周邊另有簡易免費停車場。</li>
+            <li><b>建議路線</b>　09:45 停好車 → 先走玻璃空橋拍照 → 主展館看常設展吹冷氣 → 11:00 到販賣部買客家伴手禮 → 11:20 上車。</li>
+          </ul>
+          <div class="note good"><span class="lbl">✓ 為什麼這裡對媽媽最友善</span>① <b>主展場全室內、有冷氣</b>——8 月中午在戶外走動很折騰，這裡完全避開；② 館外設有<b>無障礙坡道、無障礙階梯平台、無障礙廁所與無障礙電梯</b>；③ <b>可憑有效證件免費借用輪椅</b>（戶外服務台登記，每張證件限借一台）——就算沒帶輪椅出門也不怕；④ 身障車位免費且離入口近。</div>
+          <div class="note tip"><span class="lbl">上車前</span>離開前請大家先上洗手間——接下來要連續開 1 小時 37 分才會到車埕。</div>
+          <div class="meta">
+            <a href="https://thcdc.hakka.gov.tw/1240/" target="_blank">🔗 官方網站</a>
+            <a href="https://www.google.com/maps/search/?api=1&query=臺灣客家文化館" target="_blank">🗺 苗栗縣銅鑼鄉九湖村銅科南路 6 號</a>
+            <a href="tel:037985558">📞 (037) 985-558</a>
+            <span>⏰ 09:00–17:00（週二休）</span><span>🎟 免門票 ‧ 停車 50 元</span>
+          </div>
+          <div class="who"><span>全員</span></div>
+        </div>
+      </div>
+
+      <div class="item drive">
+        <div class="card">
+          <span class="time">11:20 – 12:57</span><span class="gm">Google Maps 1 小時 37 分 ‧ 110 km</span>
+          <h3>臺灣客家文化館 → 車埕（澄石新天畝）</h3>
+          <p>國道 3 號南下 → 名間交流道 → 台 16 線經集集、水里 → 車埕。台 16 線後段是山區道路，車不多但彎道略多，開慢一點。</p>
+          <div class="note tip"><span class="lbl">順路備案</span>如果時間有餘裕又想再停一下，<b>銅鑼茶廠</b>就在客家文化館旁 2 公里（車程 4 分鐘），台灣農林經營、16 公頃茶園，入場券 100 元可全額折抵消費、身障人士免費，觀景平台可以邊喝茶邊看火車穿過茶園。不過加上這一站會壓縮午餐時間，建議二選一就好。</div>
+          <div class="who"><span>全員</span></div>
+        </div>
+      </div>
+
+      <div class="item meal">
+        <div class="card">
+          <span class="time">13:00 – 14:30</span><span class="dur">用餐 90 分</span>
+          <h3>🍱 午餐：澄石新天畝（車埕）</h3>
+          <p>由<b>車埕火車站站長與副站長的日式檜木宿舍</b>改建而成的餐廳，保留了老宿舍的木構與庭園，是車埕最有味道的用餐空間。菜單有<b>日式定食、鍋物、蔬食與下午茶點</b>，也做純素／奶素／蛋奶素，長輩與吃素的人都好安排。</p>
+          <ul class="pts">
+            <li><b>營業時間</b>　平日 11:00–17:00，<b>六日 11:00–18:00</b>（8/30 是星期日）。</li>
+            <li><b>用餐規則</b>　尖峰時段<b>用餐限 90 分鐘</b>，每人低消一份餐點或飲品。現場<b>掃碼點餐</b>、線上結帳，可用 LINE Pay 與街口支付。</li>
+            <li><b>強烈建議先訂位</b>　049-287-0101。週日中午是車埕人潮高峰，臨時到很可能候位。</li>
+          </ul>
+          <div class="note acc"><span class="lbl">無障礙叮嚀 ‧ 訂位時一起問</span>這是<b>日式老宿舍改建</b>，通常會有木造台階與門檻，室內走道也偏窄。訂位時請主動說明<b>同行有長輩、需要好進出的座位</b>，請店家安排<b>最靠近入口、進出方便的桌位</b>，並問清楚門口有沒有斜坡或需要協助跨階。<br>車埕停車場到餐廳有一小段路，建議<b>先開到餐廳門口讓媽媽下車</b>，再去停車。</div>
+          <div class="meta">
+            <a href="https://www.google.com/maps/search/?api=1&query=澄石新天畝+南投縣水里鄉民權巷3號" target="_blank">🗺 南投縣水里鄉民權巷 3 號</a>
+            <a href="tel:0492870101">📞 049-287-0101</a>
+            <span>⏰ 六日 11:00–18:00</span><span>🌱 有蔬食／全素</span>
+          </div>
+          <div class="who"><span>全員</span></div>
+        </div>
+      </div>
+
+      <div class="item play">
+        <div class="card">
+          <span class="time">14:30 – 16:00</span><span class="gm">走路 2 分鐘 ‧ 同一條民權巷</span>
+          <h3>🪵 林班道體驗工廠（車埕）</h3>
+          <p>好消息：<b>澄石新天畝在民權巷 3 號、林班道體驗工廠在民權巷 101-5 號，走路 2 分鐘就到，完全不用開車。</b></p>
+          <p>車埕早年是<b>振昌木業</b>的伐木集散地，號稱「小台北」，林班道就是在舊木業廠房的基礎上改建的。體驗工廠位於中央廣場一樓，提供<b>近百種已裁切好的木材套件與 DIY 組合教學</b>——小板凳、置物盒、時鐘、筆筒都能做，現場有師傅教，做完直接帶走。</p>
+          <ul class="pts">
+            <li><b>營業時間</b>　平日 09:30–17:00，<b>假日 09:30–18:00</b>；週二與除夕公休（暑假期間無公休）。8/30 是星期日，正常營業。</li>
+            <li><b>建議節奏</b>　14:30 到現場挑木作套件 → 15:00 開始組裝（多數品項 40–60 分鐘可完成）→ 15:50 收工上車。</li>
+            <li><b>順便逛</b>　旁邊就是<b>車埕火車站</b>（集集線終點）、<b>貯木池</b>與<b>木業展示館</b>，都在步行範圍內。貯木池畔有木棧道，是車埕最好拍的地方。</li>
+          </ul>
+          <div class="note acc"><span class="lbl">無障礙叮嚀</span>體驗工廠在<b>中央廣場一樓</b>，是平面空間、輪椅可進出，DIY 全程<b>坐在工作桌前完成</b>，對媽媽來說負擔很小——她可以一起做，也可以坐在旁邊看大家做。<br>車埕園區整體是平坦的木業園區，但<b>貯木池畔木棧道會有段差</b>，推輪椅時放慢、有人陪同。若媽媽不想走遠，光是體驗工廠與中央廣場就夠待 1.5 小時。</div>
+          <div class="meta">
+            <a href="https://www.google.com/maps/search/?api=1&query=林班道體驗工廠+車埕" target="_blank">🗺 南投縣水里鄉車埕村民權巷 101-5 號</a>
+            <a href="tel:0492777462">📞 049-277-7462</a>
+            <span>⏰ 假日 09:30–18:00（週二休）</span>
+          </div>
+          <div class="who"><span>全員</span></div>
+        </div>
+      </div>
+
+      <div class="item drive">
+        <div class="card">
+          <span class="time">16:00 – 16:45</span><span class="gm">Google Maps 43 分 ‧ 25.7 km</span>
+          <h3>車埕 → 日月潭住宿（伊達邵）（伊達邵）</h3>
+          <p>台 21 線沿日月潭南岸往伊達邵。這段是環潭公路，沿途有幾個觀景點，車速放慢欣賞即可。</p>
+          <div class="note tip"><span class="lbl">彎路提醒</span>環潭公路彎道多，媽媽若容易暈車，建議<b>坐前座或右後座、開窗透氣</b>，出發前備好暈車藥。</div>
+          <div class="who"><span>全員</span></div>
+        </div>
+      </div>
+
+      <div class="item stay">
+        <div class="card">
+          <span class="time">16:45 – 18:00</span>
+          <h3>🛏 入住：日月潭住宿（伊達邵）</h3>
+          <p>位在<b>伊達邵老街</b>裡，是全湖景房型的民宿，<b>有電梯</b>——這點對媽媽很重要，訂房時請再跟老闆確認房間樓層與電梯位置。停車就在民宿旁邊。</p>
+          <div class="note tip"><span class="lbl">Check-in 時一次問完</span>① 房間樓層與電梯／有無門檻；② 車子停哪裡、離大門多遠；③ 明早 09:00 出發前的早餐怎麼安排；④ 伊達邵碼頭走過去多遠（傍晚可以去看夕陽）。</div>
+          <div class="note good"><span class="lbl">✓ 晚上完全不用開車</span>住宿到麓司岸餐坊<b>只有 220 公尺、走路 3 分鐘</b>，伊達邵老街就在門口。行李放好後可以先在老街走走、看看湖，18:00 再散步過去吃晚餐。</div>
+          <div class="meta">
+            <span>🗺 伊達邵老街內</span>
+            <span>📞 電話請以你的訂房確認信為準</span>
+            <span>🛗 有電梯</span><span>🅿️ 民宿旁停車</span>
+          </div>
+          <div class="who"><span>全員</span></div>
+        </div>
+      </div>
+
+      <div class="item meal">
+        <div class="card">
+          <span class="time">18:00 – 20:00</span><span class="gm">走路 3 分鐘 ‧ 220 公尺</span>
+          <h3>🍽 晚餐：麓司岸餐坊（伊達邵）</h3>
+          <p>伊達邵最具代表性的<b>邵族風味料理</b>餐廳。主廚<b>阿聖師</b>是道地邵族人，曾任星級飯店主廚，把部落傳統食材做成創意料理——刺蔥、馬告、竹筒飯、山豬肉、總統魚等都是招牌。</p>
+          <ul class="pts">
+            <li><b>營業時間</b>　週日 11:00–14:30、17:00–20:30（8/30 是星期日）。</li>
+            <li><b>怎麼點</b>　主打<b>合菜組合</b>，最低 600 元就有三菜一湯。5 個人建議點中型合菜再加點 1–2 道特色菜。</li>
+            <li><b>建議先訂位</b>　049-285-0451，或 FB 粉絲團私訊。暑假週日晚上伊達邵人潮多。</li>
+          </ul>
+          <div class="note acc"><span class="lbl">無障礙叮嚀</span>訂位時說明同行有長輩，請安排<b>一樓、靠門口</b>的桌位。伊達邵老街是行人商圈、路面平坦，但傍晚人潮密集，推輪椅或攙扶時請走慢一點。</div>
+          <div class="meta">
+            <a href="https://lusihan.com.tw/restaurant/" target="_blank">🔗 官方網站</a>
+            <a href="https://www.google.com/maps/search/?api=1&query=麓司岸餐坊" target="_blank">🗺 南投縣魚池鄉文化街 108 號</a>
+            <a href="tel:0492850451">📞 049-285-0451</a>
+            <span>⏰ 週日 11:00–14:30、17:00–20:30</span>
+          </div>
+          <div class="who"><span>全員</span></div>
+        </div>
+      </div>
+
+      <div class="item play">
+        <div class="card">
+          <span class="time">20:00 之後（自由）</span>
+          <h3>🌙 伊達邵老街散步</h3>
+          <p>晚餐後在老街走走消化：<b>杰記山豬肉刈包、阿三孔麻糬、年記做不復賣香菇高麗菜包</b>都在這條街上。走到<b>伊達邵碼頭</b>只要幾分鐘，夜裡的日月潭很安靜，湖面會映著對岸燈火。</p>
+          <div class="note tip"><span class="lbl">早點休息</span>今天開了將近 4 小時的車，明天 09:00 又要出發。老街逛個 40 分鐘就好，讓媽媽早點回房休息。</div>
+          <div class="who"><span>全員</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= DAY 2 ================= -->
+  <section class="day" id="d2">
+    <div class="day-head">
+      <h2>Day 2｜日月潭 → 魚池鄉農會 → 水里蛇窯 → 董家肉圓 → 返程</h2>
+      <p>今天的午餐是<b>水里在地的「吃兩攤」</b>：先到<b>阿婆慢慢麵</b>吃柴燒老灶的古早味麵，再到 500 公尺外的<b>董家肉圓</b>吃肉圓配大骨湯。<br><span style="color:var(--alert)">請注意：<b>董家肉圓四家分店全部下午才開，最早的一家 13:00</b>，所以午餐時間安排在 12:30 之後；回程<b>泰安服務區 → 松山要 2 小時</b>，加上週一傍晚車潮，請盡量準時。</span></p>
+    </div>
+
+    <div class="tl">
+
+      <div class="item drive">
+        <div class="card">
+          <span class="time">09:00 – 09:20</span><span class="gm">Google Maps 20 分 ‧ 10.7 km</span>
+          <h3>住宿 → 魚池鄉農會</h3>
+          <p>台 21 線往北到魚池市區，路程很短。出發前記得先辦好退房、行李裝車。</p>
+          <div class="who"><span>全員</span></div>
+        </div>
+      </div>
+
+      <div class="item play">
+        <div class="card">
+          <span class="time">09:20 – 10:00</span><span class="dur">停留 40 分</span>
+          <h3>🍵 魚池鄉農會 ‧ 日月潭紅茶館</h3>
+          <p>魚池是<b>台灣阿薩姆紅茶的原鄉</b>，日治時期就在此試種。農會的紅茶館是產地直營的門市與小型觀光工廠：<b>一樓是禮品店與點茶吧、二樓是茶餐廳、三樓是 DIY 手作教室（需預約）</b>。</p>
+          <ul class="pts">
+            <li><b>必買</b>　台茶 18 號<b>紅玉</b>（有天然肉桂與薄荷香）、<b>阿薩姆紅茶</b>、台茶 21 號<b>紅韻</b>；另有日月潭香菇、茶之捲蛋捲、紅茶冰淇淋、阿薩姆千層派、菇菇茶集禮盒。</li>
+            <li><b>建議做法</b>　先在一樓<b>點茶吧試喝</b>比較紅玉與阿薩姆的差別，再決定買哪一種當伴手禮。40 分鐘剛好夠試茶＋採買。</li>
+            <li><b>營業時間</b>　08:30–17:00，09:20 到剛好開門不久、人少好逛。</li>
+          </ul>
+          <div class="note acc"><span class="lbl">無障礙叮嚀</span>一樓禮品店是平面空間、動線寬，媽媽可以全程在一樓試茶與選購，<b>不必上二三樓</b>（二樓茶餐廳、三樓 DIY 教室今天都用不到）。門口有停車空間，可以先讓媽媽在門口下車。</div>
+          <div class="meta">
+            <a href="https://www.google.com/maps/search/?api=1&query=魚池鄉農會+日月潭紅茶館" target="_blank">🗺 南投縣魚池鄉魚池街 441 號</a>
+            <a href="tel:0492898453">📞 049-289-8453</a>
+            <span>⏰ 08:30–17:00</span>
+          </div>
+          <div class="who"><span>全員</span></div>
+        </div>
+      </div>
+
+      <div class="item drive">
+        <div class="card">
+          <span class="time">10:00 – 10:30</span><span class="gm">Google Maps 30 分 ‧ 20.6 km</span>
+          <h3>魚池鄉農會 → 水里蛇窯</h3>
+          <p>台 21 線轉往水里方向，沿途是山區道路，車不多。</p>
+          <div class="who"><span>全員</span></div>
+        </div>
+      </div>
+
+      <div class="item play">
+        <div class="card">
+          <span class="time">10:30 – 12:20</span><span class="dur">停留 1 小時 50 分</span>
+          <h3>🏺 水里蛇窯陶藝文化園區</h3>
+          <p>創立於 1927 年，是<b>台灣現存最古老、最具傳統風格的柴燒窯</b>。窯身沿山坡以土磚砌成、細長蜿蜒，遠看像一條蛇，因此得名。園區保留了老蛇窯本體，另有陶藝館、陶甕藝術牆、老宿舍與日式庭園，整體氣氛很有味道。</p>
+          <ul class="pts">
+            <li><b>開放時間</b>　週四～週一 08:30–17:30，<b>週二、三公休</b>（暑假期間週二有開放）。<b>8/31 是星期一，正常開園。</b></li>
+            <li><b>門票</b>　全票 150 元、優惠票 120 元、<b>愛心票 100 元</b>（媽媽適用）。門票含<b>餐飲折價券與陶品折價券各 20 元</b>，等於實付更少。</li>
+            <li><b>手拉坯 DIY</b>　從報名繳費到完成作品大約 10–20 分鐘，成形很快，人人都做得起來。另有陶瓷釉下彩可選。</li>
+            <li><b>還可以做</b>　園區有漢服租借拍照、陶藝館展售、下午茶區。</li>
+          </ul>
+          <div class="note tip"><span class="lbl">建議節奏</span><b>10:30–11:10 逛老蛇窯與陶甕藝術牆 → 11:10–11:50 手拉坯 DIY → 11:50–12:20 陶藝館選購、用門票的陶品折價券</b>。1 小時 50 分剛好，12:20 準時上車去吃第一攤。</div>
+          <div class="note acc"><span class="lbl">無障礙叮嚀 ‧ 建議先致電確認</span>園區<b>沿山坡而建，部分區域有坡道與階梯</b>，老蛇窯本體周邊地面為原始土石。官方未公開無障礙設施資訊，<b>建議出發前撥 049-277-0967 詢問輪椅動線與可停多近</b>。<br>若坡道對媽媽吃力，可安排她待在<b>陶藝館與 DIY 教室這一帶（相對平坦、有座位與遮蔭）</b>，手拉坯是坐著完成的，她一樣能參與；其他人再上去看老窯。</div>
+          <div class="meta">
+            <a href="https://www.snakekiln.com.tw/" target="_blank">🔗 官方網站</a>
+            <a href="https://www.google.com/maps/search/?api=1&query=水里蛇窯陶藝文化園區" target="_blank">🗺 南投縣水里鄉頂崁村回窯路 16 號</a>
+            <a href="tel:0492770967">📞 049-277-0967</a>
+            <span>⏰ 08:30–17:30（週二、三休）</span><span>🎟 全票 150 / 愛心票 100</span>
+          </div>
+          <div class="who"><span>全員</span></div>
+        </div>
+      </div>
+
+      <div class="item drive">
+        <div class="card">
+          <span class="time">12:20 – 12:30</span><span class="gm">Google Maps 7 分 ‧ 2.5 km</span>
+          <h3>水里蛇窯 → 阿婆慢慢麵</h3>
+          <p>下山進水里市區。麵店藏在<b>水里傳統市場</b>裡，巷子窄、車位不好找，建議<b>先在市場口讓大家下車，再由主駕單獨去找車位</b>。</p>
+          <div class="who"><span>全員</span></div>
+        </div>
+      </div>
+
+      <div class="item meal">
+        <div class="card">
+          <span class="time">12:30 – 13:10</span><span class="dur">第一攤 ‧ 40 分</span>
+          <h3>🍜 午餐①：阿婆慢慢麵</h3>
+          <p>藏在水里傳統市場裡的<b>無招牌麵店</b>，開了 80 年，到現在還<b>用傳統土灶燒木柴煮麵</b>——這也是「慢慢麵」名字的由來：柴火火候慢、出餐不快，客人得慢慢等。</p>
+          <ul class="pts">
+            <li><b>必點</b>　<b>油蔥乾麵</b>（濃郁豬油與油蔥香，是招牌）、<b>扁食麵</b>、陽春麵，再加一份小菜。</li>
+            <li><b>營業時間</b>　<b>10:30–16:00</b>——比董家肉圓早開兩個半小時，所以排第一攤剛剛好。</li>
+            <li><b>沒有招牌</b>　店面樸素、就在市場攤位之間，導航到市場街 39 號後注意看柴燒老灶與排隊人龍。</li>
+            <li><b>吃七分飽就好</b>　等一下還有第二攤。</li>
+          </ul>
+          <div class="note acc"><span class="lbl">無障礙叮嚀</span>傳統市場內部走道窄、地面可能濕滑，桌椅也是老式矮桌凳。建議<b>主駕先進去看座位狀況、順便點餐</b>，確認有適合媽媽坐的位子再帶她進去；車輛盡量停到市場入口最近處。<br>若當天人潮太多或動線不便，備案是直接跳過這攤、把董家肉圓當正餐，再到民生路一帶找麵攤加點。</div>
+          <div class="meta">
+            <a href="https://www.google.com/maps/search/?api=1&query=阿婆慢慢麵+水里" target="_blank">🗺 南投縣水里鄉城中村市場街 39 號（市場巷 31 號）</a>
+            <span>⏰ 10:30–16:00</span>
+          </div>
+          <div class="who"><span>全員</span></div>
+        </div>
+      </div>
+
+      <div class="item meal">
+        <div class="card">
+          <span class="time">13:20 – 14:00</span><span class="gm">相距 500 公尺 ‧ 走路 7 分</span>
+          <h3>🥟 午餐②：董家肉圓（四弟的店）</h3>
+          <p>水里在地傳承<b>70 年的肉圓老店</b>，由董家三兄弟與四弟分別經營四間店，各有各的擁護者。水里肉圓的特色是<b>外皮軟 Q、內餡實在，吃到一半要加免費大骨清湯</b>——當地人稱這叫「<b>肉圓二部曲</b>」：先吃乾的，再把清湯倒進剩下的皮裡當湯品喝掉，這是水里獨有的吃法。</p>
+          <ul class="pts">
+            <li><b>建議點法</b>　剛吃完麵，這攤<b>每人 1 顆肉圓</b>就好，重點是體驗加湯的吃法。</li>
+            <li><b>還有時間的話</b>　附近的<b>二坪冰店</b>枝仔冰是水里另一個經典，可以買了帶上車。</li>
+          </ul>
+          <div class="note acc"><span class="lbl">🔴 為什麼午餐排在 13:00 之後</span>董家四家分店<b>全部下午才開</b>，中午 12 點一家都吃不到：<br>‧ <b>四弟的店</b>（民生路 299 號）<b>13:00–18:30</b> ← 最早，本行程選這家<br>‧ 二哥的店（中山路一段 76 號）14:00–17:30，週三四公休<br>‧ 大哥的店（民族路 342 號）14:10–17:30<br>‧ 三哥的店（民生路 275 號）14:20–18:00，<b>週一公休 → 8/31 不開</b><br>所以 8/31 星期一唯一能在 13:00 吃到的就是<b>四弟的店</b>。</div>
+          <div class="note tip"><span class="lbl">媽媽這段建議搭車</span>兩店相距 500 公尺、走路 7 分鐘，年輕人走過去很輕鬆，但<b>對媽媽來說偏遠</b>。建議<b>開車移動（車程約 2 分鐘），在店門口讓媽媽下車</b>，其他人可以選擇散步過去。</div>
+          <div class="meta">
+            <a href="https://www.google.com/maps/search/?api=1&query=董家肉圓+四弟的店+水里" target="_blank">🗺 南投縣水里鄉民生路 299 號</a>
+            <a href="tel:0492770355">📞 049-277-0355</a>
+            <span>⏰ 13:00–18:30</span>
+          </div>
+          <div class="who"><span>全員</span></div>
+        </div>
+      </div>
+
+      <div class="item drive">
+        <div class="card">
+          <span class="time">14:00 – 15:15</span><span class="gm">Google Maps 1 小時 14 分 ‧ 85.1 km</span>
+          <h3>水里 → 泰安服務區（北上）</h3>
+          <p>台 16 線出水里 → 國道 3 號北上 → 轉國道 1 號至泰安服務區。<b>注意選「北上」站</b>，南北兩側是分開的、不互通。</p>
+          <div class="who"><span>全員</span></div>
+        </div>
+      </div>
+
+      <div class="item play">
+        <div class="card">
+          <span class="time">15:15 – 15:45</span><span class="dur">停留 30 分</span>
+          <h3>☕ 泰安服務區（北上）‧ 中途休息</h3>
+          <p>國道 1 號上腹地最大的服務區之一，有美食街、便利商店、伴手禮專區與大片綠地。這是回程唯一的正式休息點——<b>接下來到松山還要連續開 2 小時</b>。</p>
+          <div class="note acc"><span class="lbl">無障礙叮嚀</span>國道服務區設施新、地面平整、<b>有無障礙廁所與無障礙停車位</b>，是這趟回程對媽媽最友善的休息點。請務必在這裡讓她如廁完畢、下車走動伸展腳踝，預防久坐水腫。</div>
+          <div class="who"><span>全員</span></div>
+        </div>
+      </div>
+
+      <div class="item drive">
+        <div class="card">
+          <span class="time">15:45 – 17:50</span><span class="gm">Google Maps 2 小時 4 分 ‧ 144 km</span>
+          <h3>泰安服務區 → 松山接送點（送小阿姨）</h3>
+          <p>國道 1 號北上進台北市區。</p>
+          <div class="note acc"><span class="lbl">⚠️ 今天最長的一段車程</span>一般路況要 <b>2 小時 4 分</b>，而 8/31 是<b>星期一傍晚</b>，國道 1 號北上進台北會遇到通勤車潮，實際可能再多 20–30 分鐘。<br><b>所以</b>：泰安的休息請控制在 30 分鐘內、15:45 準時上路；出發前查 1968 App 看即時路況。若嚴重回堵，可改走國道 3 號轉台 65／64 線繞開市區。</div>
+          <div class="who"><span>全員</span></div>
+        </div>
+      </div>
+
+      <div class="item drive">
+        <div class="card">
+          <span class="time">17:50 – 18:40</span><span class="gm">Google Maps 48 分 ‧ 33.1 km</span>
+          <h3>松山接送點 → 回家</h3>
+          <p>送小阿姨下車後返程。這段會落在下班尖峰，48 分鐘是一般路況值，實際可能要 1 小時。</p>
+          <div class="note tip"><span class="lbl">到家後</span>兩天下來媽媽坐車超過 7 小時，回家後建議先讓她坐著休息、慢慢喝溫水，並活動腳踝與小腿，避免久坐水腫。</div>
+          <div class="who"><span>主駕</span><span>媽媽</span><span>姐姐</span><span>表妹</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= 車程對照表 ================= -->
+  <div class="block">
+    <h3>🚗 全程車程一覽</h3>
+    <p class="intro">每一段都取自 Google Maps <b>導航主推路線</b>的時間與距離，為<b>一般路況</b>值，尖峰時段請另加緩衝。</p>
+    <table>
+      <tr><th>日</th><th>路段</th><th>車程</th><th>距離</th><th>備註</th></tr>
+      <tr><td>1</td><td>出發地 → 松山接送點</td><td class="num">53 分</td><td class="num">33.2 km</td><td class="d-ok">—</td></tr>
+      <tr><td>1</td><td>松山 → 臺灣客家文化館</td><td class="num">1:44</td><td class="num">129 km</td><td class="d-ok">今日最長一段</td></tr>
+      <tr><td>1</td><td>臺灣客家文化館 → 澄石新天畝</td><td class="num">1:37</td><td class="num">110 km</td><td class="d-ok">山路，開慢一點</td></tr>
+      
+      <tr><td>1</td><td><b>澄石新天畝 → 林班道</b></td><td class="num"><b>走路 2 分</b></td><td class="num">同一巷</td><td class="d-ok">不用開車</td></tr>
+      <tr><td>1</td><td>林班道 → 日月潭住宿（伊達邵）</td><td class="num">43 分</td><td class="num">25.7 km</td><td class="d-ok">環潭公路，彎道多</td></tr>
+      <tr><td>1</td><td><b>住宿 → 麓司岸餐坊</b></td><td class="num"><b>走路 3 分</b></td><td class="num">220 m</td><td class="d-ok">不用開車</td></tr>
+      <tr><td>2</td><td>住宿 → 魚池鄉農會</td><td class="num">20 分</td><td class="num">10.7 km</td><td class="d-ok">—</td></tr>
+      <tr><td>2</td><td>魚池鄉農會 → 水里蛇窯</td><td class="num">30 分</td><td class="num">20.6 km</td><td class="d-ok">—</td></tr>
+      <tr><td>2</td><td>水里蛇窯 → 阿婆慢慢麵</td><td class="num">7 分</td><td class="num">2.5 km</td><td class="d-ok">市場內，車位難找</td></tr>
+      <tr><td>2</td><td><b>阿婆慢慢麵 → 董家肉圓</b></td><td class="num"><b>走路 7 分</b></td><td class="num">500 m</td><td class="d-ok">媽媽建議搭車</td></tr>
+      <tr><td>2</td><td>董家肉圓 → 泰安服務區（北上）</td><td class="num">1:14</td><td class="num">85.1 km</td><td class="d-ok">—</td></tr>
+      <tr class="hi"><td>2</td><td><b>泰安服務區 → 松山</b></td><td class="num"><b>2:04</b></td><td class="num">144 km</td><td class="d-up">週一傍晚易塞</td></tr>
+      <tr><td>2</td><td>松山接送點 → 回家</td><td class="num">48 分</td><td class="num">33.1 km</td><td class="d-ok">下班尖峰會慢</td></tr>
+    </table>
+    <div class="note good" style="margin-top:14px"><span class="lbl">✓ 三段完全不用開車</span><b>澄石新天畝 → 林班道走路 2 分鐘</b>（都在車埕民權巷）、<b>住宿 → 麓司岸餐坊走路 3 分鐘</b>（都在伊達邵）、<b>阿婆慢慢麵 → 董家肉圓 500 公尺</b>。第一天下午與晚上、第二天午餐都在步行範圍內。</div>
+  </div>
+
+  <!-- ================= 附錄 ================= -->
+  <div class="block">
+    <h3>📞 重要電話與營業時間</h3>
+    <table>
+      <tr><th>地點</th><th>電話</th><th>營業／開放時間</th></tr>
+      <tr><td>臺灣客家文化館（銅鑼）<br>銅鑼鄉九湖村銅科南路 6 號</td><td><a href="tel:037985558">(037) 985-558</a></td><td>09:00–17:00（<b>週二休</b>）‧ 免門票<br>停車 50 元／身障車位免費 ‧ 可免費借輪椅</td></tr>
+      <tr><td><b>澄石新天畝</b>（車埕）<br>水里鄉民權巷 3 號</td><td><a href="tel:0492870101">049-287-0101</a></td><td>平日 11:00–17:00／<b>六日 11:00–18:00</b><br>用餐 90 分 ‧ 掃碼點餐 ‧ <b>建議訂位</b></td></tr>
+      <tr><td>林班道體驗工廠（車埕）<br>水里鄉車埕村民權巷 101-5 號</td><td><a href="tel:0492777462">049-277-7462</a></td><td>平日 09:30–17:00／假日 09:30–18:00<br>（週二、除夕休，暑假無公休）</td></tr>
+      <tr><td>日月潭住宿（伊達邵）</td><td><b>詳見群組分享的訂房確認信</b></td><td>有電梯 ‧ 民宿旁停車</td></tr>
+      <tr><td><b>麓司岸餐坊</b>（伊達邵）<br>魚池鄉文化街 108 號</td><td><a href="tel:0492850451">049-285-0451</a></td><td>週日 11:00–14:30、17:00–20:30<br>合菜 600 元起 ‧ <b>建議訂位</b></td></tr>
+      <tr><td>魚池鄉農會 ‧ 日月潭紅茶館<br>魚池鄉魚池街 441 號</td><td><a href="tel:0492898453">049-289-8453</a></td><td>08:30–17:00</td></tr>
+      <tr><td>水里蛇窯陶藝文化園區<br>水里鄉頂崁村回窯路 16 號</td><td><a href="tel:0492770967">049-277-0967</a></td><td>08:30–17:30（<b>週二、三休</b>，8/31 週一開）<br>全票 150／優惠 120／<b>愛心票 100</b></td></tr>
+      <tr><td><b>阿婆慢慢麵</b>（水里市場內）<br>水里鄉城中村市場街 39 號</td><td>無公開電話<br>（市場內無招牌小店）</td><td><b>10:30–16:00</b> ‧ 柴燒老灶古早味</td></tr>
+      <tr><td><b>董家肉圓 ‧ 四弟的店</b><br>水里鄉民生路 299 號</td><td><a href="tel:0492770355">049-277-0355</a></td><td><b>13:00–18:30</b>（8/31 唯一 13:00 就開的一家）</td></tr>
+      <tr><td>高速公路路況 ‧ 1968</td><td><a href="tel:1968">1968</a></td><td>即時路況查詢</td></tr>
+      <tr><td>國道救援</td><td><a href="tel:0800004599">0800-004-599</a></td><td>24 小時</td></tr>
+    </table>
+  </div>
+
+  <div class="block">
+    <h3>✅ 出發前必做清單</h3>
+    <ul class="pts">
+      <li><b>🔴 訂位澄石新天畝</b>（049-287-0101）：8/30 週日 <b>13:00，5 位</b>。同時說明同行有長輩、需要好進出的座位，請安排靠入口、進出方便的桌位，並問清楚門口有無台階或斜坡——這是日式老宿舍改建，門檻是最大變數。</li>
+      <li><b>訂位麓司岸餐坊</b>（049-285-0451 或 FB 私訊）：8/30 週日 <b>18:00，5 位</b>，請安排一樓靠門口座位。</li>
+      <li><b>致電水里蛇窯</b>（049-277-0967）確認<b>輪椅動線與車子能停多近</b>——園區沿山坡而建，官方未公開無障礙資訊，這通電話最關鍵。順便問手拉坯 DIY 是否需預約。</li>
+      <li><b>向住宿確認</b>房間樓層、電梯位置、有無門檻，以及停車位置離大門多遠。</li>
+      <li><b>確認 8/30 是星期日</b>——客家文化館（週二休）、林班道（週二休）都正常營業；8/31 星期一水里蛇窯正常開園，但<b>董家肉圓三哥的店週一公休</b>，所以認明<b>四弟的店（民生路 299 號）</b>。</li>
+      <li><b>回程路況</b>　8/31 是星期一傍晚，國道 1 號北上進台北會塞。出發前查 1968 App，泰安休息控制在 30 分鐘內。</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <h3>🎒 行李重點（長輩隨行版）</h3>
+    <ul class="pts">
+      <li><b>藥品</b>　媽媽的常用慢性病藥（分裝好、多帶 1 天份）、<b>暈車藥</b>（環潭公路與台 16 線彎道多）、腸胃藥、痠痛貼布、簡易急救包。</li>
+      <li><b>移動輔具</b>　拐杖或輪椅＋坐墊、折疊小凳（等候時可坐）、好走的防滑鞋。<b>客家文化館可免費借輪椅</b>，但其他點沒有。</li>
+      <li><b>防曬防蚊</b>　8 月底南投日照仍強，遮陽帽、防曬乳、防蚊液、薄外套（室內冷氣強）、雨具（山區午後雷陣雨）。</li>
+      <li><b>DIY 用</b>　林班道木工與蛇窯手拉坯都會弄髒手，帶<b>濕紙巾與一件不怕髒的外搭</b>；作品要帶回家，後車廂留點空間。</li>
+      <li><b>車上</b>　礦泉水、小點心、充電線與行動電源、垃圾袋、頸枕（回程 2 小時車程）。</li>
+      <li><b>證件</b>　健保卡（全員）、<b>媽媽的身障手冊（蛇窯愛心票 100 元、客家文化館身障車位免費都用得到）</b>、訂房確認信、悠遊卡。</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <h3>♿ 無障礙總原則</h3>
+    <ul class="pts">
+      <li><b>能坐著完成的活動優先</b>　客家文化館室內展場、林班道木工 DIY、蛇窯手拉坯、農會一樓點茶吧——這四個媽媽都是<b>坐在桌前或平面空間</b>就能參與，是這趟最舒服的四個點。</li>
+      <li><b>洗手間節點固定</b>　臺灣客家文化館（有無障礙廁所）、車埕遊憩區、住宿、泰安服務區（有無障礙廁所）——這四個最可靠，每次上車前都先解決。</li>
+      <li><b>先問再到</b>　澄石新天畝（日式老宿舍有門檻）、水里蛇窯（沿山坡有坡道階梯）這兩個是變數最大的，一定要出發前先電話確認。</li>
+      <li><b>車輛就近接送</b>　餐廳與景點門口先讓媽媽下車、再去停車，能省下最多體力。車埕與蛇窯的停車場離入口都有一段距離。</li>
+      <li><b>每段車程不超過 90 分鐘</b>　最長的兩段是 8/30 的 1:44 與 1:37、8/31 回程的 2:04。<b>回程那段建議在中途再找一個服務區稍停 10 分鐘</b>（西湖或湖口服務區）。</li>
+      <li><b>山路暈車</b>　台 16 線、環潭公路彎道多，媽媽建議坐前座或右後座、開窗透氣，出發前先吃暈車藥。</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <h3>⚠️ 三件全員要記得的事</h3>
+    <ul class="pts">
+      <li><b>董家肉圓 13:00 才開門</b>　水里董家四間分店全部下午才營業，我們去的四弟的店（民生路 299 號）是最早的一家。所以 8/31 的午餐從 12:30 的阿婆慢慢麵開始，13:20 再接肉圓。</li>
+      <li><b>回程請準時</b>　泰安服務區到松山要 2 小時，8/31 是星期一傍晚，國道 1 號北上會遇到通勤車潮。泰安休息控制在 30 分鐘內、15:45 上路，預計 <b>18:40 到家</b>。</li>
+      <li><b>兩個地方地形要留意</b>　澄石新天畝是日式老宿舍改建、有木造門檻；水里蛇窯沿山坡而建、有坡道與階梯。媽媽在這兩處請有人陪同，車子也盡量開到最近的位置再讓她下車。</li>
+    </ul>
+  </div>
+
+  <footer>
+    行程說明整理於 2026 年 8 月 ‧ 車程為 Google Maps 一般路況查詢值，營業時間與活動場次可能變動，出發前請以各店家最新公告與即時導航為準。
+  </footer>
+</div>
+
+<script>
+  document.querySelectorAll('.tab').forEach(function(t){
+    t.addEventListener('click',function(){
+      document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('on')});
+      document.querySelectorAll('.day').forEach(function(x){x.classList.remove('on')});
+      t.classList.add('on');
+      document.getElementById('d'+t.dataset.d).classList.add('on');
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+  });
+</script>
+</body>
+</html>
