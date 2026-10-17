@@ -1,5 +1,9 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>2027 沖繩七日</title>
-<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -29,7 +33,7 @@
   --stay1:#3aa7b0; --stay2:#9b84d6; --stay3:#d7a43c; color-scheme:dark;
 }
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.7;
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.7;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 48px}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
 .wrap{max-width:860px;margin:0 auto}
@@ -131,10 +135,40 @@ footer{margin-top:40px;font-size:12px;color:var(--muted)}
   .tl .drive{padding-left:60px}
   .dno{font-size:36px}
 }
+
+/* 手機版：住宿條改直列、預算表改卡片 */
+.stay-list{display:none;list-style:none;margin:0;padding:0;gap:6px}
+.stay-list li{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:center;font-size:14px}
+.stay-list .dot{width:12px;height:12px;border-radius:3px}
+.stay-list .when{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+@media (max-width:600px){
+  .strip-scroll{display:none}
+  .stay-list{display:grid}
+  .hero{padding-block:24px 14px}
+  .sec-h{font-size:22px}
+  .day-head{grid-template-columns:auto 1fr;gap:2px 12px}
+  .day-head h2{font-size:20px}
+  .day-meta{grid-column:1/-1}
+  .kv{grid-template-columns:5.5em 1fr}
+  .tbl-wrap{background:transparent;border:none}
+  table{min-width:0;font-size:14px}
+  thead{display:none}
+  table,tbody,tr,td{display:block;width:100%}
+  tr{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-bottom:8px}
+  td{border:none;padding:2px 0;text-align:left!important}
+  td.num{display:inline-block;width:auto;margin-right:18px}
+  td:nth-child(1){font-size:12px;color:var(--muted)}
+  td:nth-child(2){font-weight:500}
+  td:empty{display:none}
+  td.num::before{content:attr(data-label);color:var(--muted);font-family:var(--f-body);font-size:12px;margin-right:8px}
+  tr.total{border-color:var(--sea)}
+  .daynav{margin-inline:calc(-1 * max(16px, env(safe-area-inset-left,0px)));padding-inline:max(16px, env(safe-area-inset-left,0px))}
+}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
 html{scroll-behavior:smooth}
 </style>
-
+</head>
+<body>
 <div class="wrap">
 
 <header class="hero">
@@ -151,6 +185,13 @@ html{scroll-behavior:smooth}
     <div class="bar b2">One Suite THE GRAND · 2 晚</div>
     <div class="bar b3">BEB5 沖繩瀨良垣 · 2 晚</div>
   </div></div>
+  <ul class="stay-list" aria-label="住宿（手機版）">
+    <li><span class="when">3/28 ✈</span><span>JX870 12:00 桃園 → 14:40 沖繩</span></li>
+    <li><span class="dot" style="background:var(--stay1)"></span><span><b>瀨長島故事線</b> <span class="when">3/28–3/30 · 2 晚</span></span></li>
+    <li><span class="dot" style="background:var(--stay2)"></span><span><b>One Suite THE GRAND</b> <span class="when">3/30–4/01 · 2 晚</span></span></li>
+    <li><span class="dot" style="background:var(--stay3)"></span><span><b>BEB5 沖繩瀨良垣</b> <span class="when">4/01–4/03 · 2 晚</span></span></li>
+    <li><span class="when">4/03 ✈</span><span>JX871 15:50 沖繩 → 16:25 桃園</span></li>
+  </ul>
   <div class="strip-note">南部（豐見城市） → 北部（今歸仁村古宇利島） → 中部西海岸（恩納村）。最後一天早上從恩納村開回那霸機場。</div>
 </div>
 
@@ -433,13 +474,13 @@ html{scroll-behavior:smooth}
     <table>
       <thead><tr><th>項目</th><th>說明</th><th class="num">JPY</th><th class="num">TWD</th></tr></thead>
       <tbody>
-        <tr><td>機票</td><td>星宇 JX870 / JX871</td><td class="num">—</td><td class="num">38,814</td></tr>
-        <tr><td>租車</td><td>Sky Rent a Car 7 天</td><td class="num" data-jpy="58100">58,100</td><td class="num tw"></td></tr>
-        <tr><td>住宿</td><td>瀨長島故事線 2 晚</td><td class="num" data-jpy="69120">69,120</td><td class="num tw"></td></tr>
-        <tr><td>住宿</td><td>One Suite THE GRAND 2 晚</td><td class="num" data-jpy="222708">222,708</td><td class="num tw"></td></tr>
-        <tr><td>餐飲</td><td>One Suite 晚餐 25,410 × 3</td><td class="num" data-jpy="76230">76,230</td><td class="num tw"></td></tr>
-        <tr><td>住宿</td><td>BEB5 沖繩瀨良垣 2 晚</td><td class="num" data-jpy="45522">45,522</td><td class="num tw"></td></tr>
-        <tr class="total"><td>合計</td><td></td><td class="num">471,680</td><td class="num" id="grand"></td></tr>
+        <tr><td>機票</td><td>星宇 JX870 / JX871</td><td class="num" data-label="JPY">—</td><td class="num" data-label="TWD">38,814</td></tr>
+        <tr><td>租車</td><td>Sky Rent a Car 7 天</td><td class="num" data-label="JPY" data-jpy="58100">58,100</td><td class="num tw" data-label="TWD"></td></tr>
+        <tr><td>住宿</td><td>瀨長島故事線 2 晚</td><td class="num" data-label="JPY" data-jpy="69120">69,120</td><td class="num tw" data-label="TWD"></td></tr>
+        <tr><td>住宿</td><td>One Suite THE GRAND 2 晚</td><td class="num" data-label="JPY" data-jpy="222708">222,708</td><td class="num tw" data-label="TWD"></td></tr>
+        <tr><td>餐飲</td><td>One Suite 晚餐 25,410 × 3</td><td class="num" data-label="JPY" data-jpy="76230">76,230</td><td class="num tw" data-label="TWD"></td></tr>
+        <tr><td>住宿</td><td>BEB5 沖繩瀨良垣 2 晚</td><td class="num" data-label="JPY" data-jpy="45522">45,522</td><td class="num tw" data-label="TWD"></td></tr>
+        <tr class="total"><td>合計</td><td></td><td class="num" data-label="JPY">471,680</td><td class="num" data-label="TWD" id="grand"></td></tr>
       </tbody>
     </table>
   </div>
@@ -508,3 +549,5 @@ html{scroll-behavior:smooth}
   });
 })();
 </script>
+</body>
+</html>
