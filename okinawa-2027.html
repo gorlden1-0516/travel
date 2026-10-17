@@ -103,6 +103,9 @@ section{padding-top:36px;scroll-margin-top:60px}
 .tl .drive{display:block;padding:6px 0 6px 76px;border-bottom:1px dashed var(--line);font-size:12px;color:var(--muted);font-family:var(--f-mono)}
 .tl .drive::before{content:"🚗 "}
 .maplink{font-size:12px;font-weight:400}
+.intro{font-size:12px;font-weight:500;color:var(--sun);text-decoration:none;border:1px solid var(--sun);border-radius:999px;padding:0 8px;white-space:nowrap}
+.intro:hover{background:var(--sun-soft)}
+.card h3 .intro{margin-left:4px}
 .facts{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:13px;margin-top:6px;color:var(--muted)}
 .facts span b{color:var(--ink);font-weight:500}
 .note{margin-top:14px;border-radius:10px;padding:12px 14px;font-size:14px}
@@ -215,7 +218,7 @@ html{scroll-behavior:smooth}
     </div>
     <div class="card">
       <span class="tag t-sea">租車 · 樂天旅遊</span>
-      <h3>Sky Rent a Car 那霸機場店</h3>
+      <h3>Sky Rent a Car 那霸機場店 <a class="intro" href="https://www.colatour.com.tw/webDM/trip/travel-service/rentcar/oka_sky.html" target="_blank" rel="noopener">取車流程 ↗</a></h3>
       <dl class="kv">
         <dt>預訂號碼</dt><dd>見樂天租車確認信</dd>
         <dt>營業所</dt><dd>那霸市具志1-23-8（機場免費接駁約 9 分）</dd>
@@ -226,7 +229,7 @@ html{scroll-behavior:smooth}
     </div>
     <div class="card">
       <span class="tag t-sea"><i class="swatch" style="background:var(--stay1)"></i>3/28–3/30 · 2 晚 · Agoda</span>
-      <h3>瀨長島故事線 STORYLINE 瀨長島</h3>
+      <h3>瀨長島故事線 STORYLINE 瀨長島 <a class="intro" href="https://okinawa.letsgojp.com/archives/632074/" target="_blank" rel="noopener">介紹 ↗</a></h3>
       <dl class="kv">
         <dt>地址</dt><dd>豐見城市瀨長155-1</dd>
         <dt>特色</dt><dd>1F 就是 Aero Beach Table；旁邊是 Umikaji Terrace，可看飛機起降</dd>
@@ -235,7 +238,7 @@ html{scroll-behavior:smooth}
     </div>
     <div class="card">
       <span class="tag t-sea"><i class="swatch" style="background:var(--stay2)"></i>3/30–4/01 · 2 晚 · 官網</span>
-      <h3>One Suite THE GRAND</h3>
+      <h3>One Suite THE GRAND <a class="intro" href="https://www.gltjp.com/zh-hant/directory/item/17434/" target="_blank" rel="noopener">介紹 ↗</a></h3>
       <dl class="kv">
         <dt>預約號碼</dt><dd>見飯店官網預約確認信</dd>
         <dt>地址</dt><dd>今歸仁村古宇利2451（古宇利島上）</dd>
@@ -247,7 +250,7 @@ html{scroll-behavior:smooth}
     </div>
     <div class="card">
       <span class="tag t-sea"><i class="swatch" style="background:var(--stay3)"></i>4/01–4/03 · 2 晚 · Agoda</span>
-      <h3>BEB5 沖繩瀨良垣（星野集團）</h3>
+      <h3>BEB5 沖繩瀨良垣（星野集團） <a class="intro" href="https://www.marieclaire.com.tw/lifestyle/travel/66969" target="_blank" rel="noopener">介紹 ↗</a></h3>
       <dl class="kv">
         <dt>地點</dt><dd>恩納村瀨良垣，到萬座毛約 10 分</dd>
         <dt>金額</dt><dd class="mono">JPY 45,522</dd>
@@ -279,16 +282,16 @@ html{scroll-behavior:smooth}
   </div>
   <ol class="tl">
     <li><time>12:00</time><div><h3>JX870 桃園 T1 → 沖繩</h3><p>起飛前 2 小時到 T1 報到。<b>14:40</b> 抵達那霸機場國際線。</p></div></li>
-    <li><time>15:30</time><div><h3>取車 · Sky Rent a Car</h3>
+    <li><time>15:30</time><div><h3>取車 · Sky Rent a Car <a class="intro" href="https://www.colatour.com.tw/webDM/trip/travel-service/rentcar/oka_sky.html" target="_blank" rel="noopener">取車流程 ↗</a></h3>
       <p>領完行李出入境大廳，過斑馬線到「租車接駁巴士乘車處」，在 <b>11-B</b> 看板附近找舉 Sky Rent a Car 牌子的人員，坐接駁車約 9 分鐘到營業所（那霸市具志）。</p>
       <p>要帶：<b>護照、台灣駕照正本＋日文譯本、預訂號碼</b>。可順便加租 ETC 卡、確認導航能輸入 MAPCODE。</p></div></li>
     <li class="drive">營業所 → 瀨長島 約 10 分</li>
-    <li><time>16:30</time><div><h3>入住 瀨長島故事線 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=STORYLINE%E7%80%AC%E9%95%B7%E5%B3%B6" target="_blank" rel="noopener">地圖 ↗</a></h3></div></li>
-    <li><time>17:30</time><div><h3>Umikaji Terrace 白色階梯 · 看夕陽</h3>
+    <li><time>16:30</time><div><h3>入住 瀨長島故事線 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=STORYLINE%E7%80%AC%E9%95%B7%E5%B3%B6" target="_blank" rel="noopener">地圖 ↗</a> <a class="intro" href="https://okinawa.letsgojp.com/archives/632074/" target="_blank" rel="noopener">介紹 ↗</a></h3></div></li>
+    <li><time>17:30</time><div><h3>Umikaji Terrace 白色階梯 · 看夕陽 <a class="intro" href="https://okinawa.letsgojp.com/archives/405500/" target="_blank" rel="noopener">介紹 ↗</a></h3>
       <p>店家約 10:00–21:00（依店家不同）。3 月底夕陽大約 18:50，可以先逛再回飯店吃晚餐；也可以上飯店頂樓看飛機起降和夜景。</p></div></li>
-    <li><time>19:00</time><div><h3>晚餐 · Aero Beach Table <span class="tag t-sun">建議訂位</span></h3>
+    <li><time>19:00</time><div><h3>晚餐 · Aero Beach Table <span class="tag t-sun">建議訂位</span> <a class="intro" href="https://www.hotpepper.jp/strJ003850111/" target="_blank" rel="noopener">日文介紹 ↗</a></h3>
       <p>飯店 1F。晚餐 18:00–22:00（LO 21:30），無公休。全 7 道 ¥9,000 / 6 道 ¥7,000，用沖繩縣產魚、本部牛。可網路訂位。</p></div></li>
-    <li><time>21:00</time><div><h3>泡湯 · 龍神之湯</h3>
+    <li><time>21:00</time><div><h3>泡湯 · 龍神之湯 <a class="intro" href="https://lailai-web.com/ryujin-no-yu/" target="_blank" rel="noopener">介紹 ↗</a></h3>
       <p>在隔壁的「琉球溫泉 瀨長島飯店」裡，走路可到，可日歸入浴，露天風呂看海。營業時間與價格出發前查飯店官網。</p></div></li>
   </ol>
 </section>
@@ -303,20 +306,20 @@ html{scroll-behavior:smooth}
   <ol class="tl">
     <li><time>08:30</time><div><h3>出發</h3><p>平日早上 58 號國道等主要道路有公車專用道時段，導航走一般車道即可，避開最右側標示「バス専用」的車道。</p></div></li>
     <li class="drive">瀨長島 → 首里城 約 30 分</li>
-    <li><time>09:00</time><div><h3>首里城公園 <span class="tag t-coral">正殿要預約</span> <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=%E9%A6%96%E9%87%8C%E5%9F%8E%E5%85%AC%E5%9C%92" target="_blank" rel="noopener">地圖 ↗</a></h3>
+    <li><time>09:00</time><div><h3>首里城公園 <span class="tag t-coral">正殿要預約</span> <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=%E9%A6%96%E9%87%8C%E5%9F%8E%E5%85%AC%E5%9C%92" target="_blank" rel="noopener">地圖 ↗</a> <a class="intro" href="https://okinawa.letsgojp.com/archives/14911/" target="_blank" rel="noopener">介紹 ↗</a></h3>
       <p>2019 年燒毀的正殿已重建完成，2026/11/23 起公開。入殿要先網路預約 30 分鐘時段，有空位時也可在現場「廣福門」售票處買（入場前 15 分鐘截止）。</p>
       <div class="facts"><span>大人 <b>¥1,000</b></span><span>停留 <b>約 2 小時</b></span></div>
-      <p>原本的「或波上宮」：波上宮在國際通西側約 5 分車程，下午逛國際通時順路去也可以。</p></div></li>
+      <p>原本的「或波上宮」： <a class="intro" href="https://www.funliday.com/posts/naminoue-gu/" target="_blank" rel="noopener">波上宮介紹 ↗</a>波上宮在國際通西側約 5 分車程，下午逛國際通時順路去也可以。</p></div></li>
     <li class="drive">首里城 → 那霸新都心 約 20 分</li>
-    <li><time>11:30</time><div><h3>午餐 · 百年古家 大家（那霸新都心店）</h3>
+    <li><time>11:30</time><div><h3>午餐 · 百年古家 大家（那霸新都心店） <a class="intro" href="https://travel.yam.com/article/134999" target="_blank" rel="noopener">介紹 ↗</a></h3>
       <p>San-A 那霸 Main Place 內。招牌是阿古豬涮涮鍋、沖繩麵、軟骨排骨（ソーキ）。營業時間以分店公告為準，午餐尖峰會等位。</p></div></li>
     <li class="drive">新都心 → 國際通 約 10 分</li>
-    <li><time>13:00</time><div><h3>國際通・第一牧志公設市場 <span class="tag t-ok">建議去</span></h3>
+    <li><time>13:00</time><div><h3>國際通・第一牧志公設市場 <span class="tag t-ok">建議去</span> <a class="intro" href="https://www.fun-japan.jp/tw/articles/12392" target="_blank" rel="noopener">介紹 ↗</a></h3>
       <p>車停附近的投幣停車場，逛 1.5 小時左右。時間夠可以順路去波上宮。</p></div></li>
     <li class="drive">國際通 → 豐崎 約 25 分</li>
-    <li><time>15:30</time><div><h3>DMM Kariyushi 水族館 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=DMM%E3%81%8B%E3%82%8A%E3%82%86%E3%81%97%E6%B0%B4%E6%97%8F%E9%A4%A8" target="_blank" rel="noopener">地圖 ↗</a></h3>
+    <li><time>15:30</time><div><h3>DMM Kariyushi 水族館 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=DMM%E3%81%8B%E3%82%8A%E3%82%86%E3%81%97%E6%B0%B4%E6%97%8F%E9%A4%A8" target="_blank" rel="noopener">地圖 ↗</a> <a class="intro" href="https://okinawa.letsgojp.com/archives/560067/" target="_blank" rel="noopener">介紹 ↗</a></h3>
       <p>豐見城市豐崎3-35（iias 沖繩豐崎內）。9:00–19:00，閉館前 1 小時停止入場。前一天以前網路購票有 9 折。</p></div></li>
-    <li><time>18:00</time><div><h3>晚餐 · 迴轉壽司 根室花丸</h3>
+    <li><time>18:00</time><div><h3>晚餐 · 迴轉壽司 根室花丸 <a class="intro" href="https://okinawa.letsgojp.com/archives/544483/" target="_blank" rel="noopener">iias 豐崎介紹 ↗</a></h3>
       <p>同在 iias 沖繩豐崎。晚餐尖峰常要等，進水族館前先去抽號碼牌比較省時。</p></div></li>
     <li class="drive">豐崎 → 瀨長島 約 10 分</li>
   </ol>
@@ -334,27 +337,27 @@ html{scroll-behavior:smooth}
   <ol class="tl">
     <li><time>08:45</time><div><h3>退房出發</h3><p>走那霸機場自動車道 → 沖繩自動車道到許田 IC。</p></div></li>
     <li class="drive">瀨長島 → 名護 約 1 小時 20 分</li>
-    <li><time>10:15</time><div><h3>午餐 · 潛水員牛排 Flipper <span class="changed">調整：提前</span> <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=%E3%83%AC%E3%82%B9%E3%83%88%E3%83%A9%E3%83%B3%E3%81%B5%E3%82%8A%E3%81%A3%E3%81%B1%E3%83%BC+%E5%90%8D%E8%AD%B7" target="_blank" rel="noopener">地圖 ↗</a></h3>
+    <li><time>10:15</time><div><h3>午餐 · 潛水員牛排 Flipper <span class="changed">調整：提前</span> <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=%E3%83%AC%E3%82%B9%E3%83%88%E3%83%A9%E3%83%B3%E3%81%B5%E3%82%8A%E3%81%A3%E3%81%B1%E3%83%BC+%E5%90%8D%E8%AD%B7" target="_blank" rel="noopener">地圖 ↗</a> <a class="intro" href="https://bigmouthblog.tw/blog/post/flipper1971" target="_blank" rel="noopener">介紹 ↗</a></h3>
       <p>名護市宇茂佐162。<b>10:30–14:00，週三公休，只收現金。</b>開店前到櫃台填候位表（英文拼音、人數），尖峰可能等 1 小時以上，所以先吃牛排再去鳳梨園。</p>
       <div class="facts"><span>菲力 300g <b>約 ¥3,700</b></span><span>伊勢龍蝦半隻 <b>約 ¥2,300</b></span></div></div></li>
     <li class="drive">Flipper → 鳳梨園 約 15 分</li>
-    <li><time>12:00</time><div><h3>名護鳳梨園 Nago Pineapple Park</h3>
+    <li><time>12:00</time><div><h3>名護鳳梨園 Nago Pineapple Park <a class="intro" href="https://okinawa.letsgojp.com/archives/763029/" target="_blank" rel="noopener">介紹 ↗</a></h3>
       <p>名護市為又1195。10:00–18:00（最後入園 17:30），無公休。</p>
       <div class="facts"><span>大人 <b>¥1,500</b></span><span>停留 <b>約 1–1.5 小時</b></span></div></div></li>
     <li class="drive">鳳梨園 → 古宇利大橋 → 海洋塔 約 30 分</li>
-    <li><time>14:00</time><div><h3>古宇利海洋塔</h3>
+    <li><time>14:00</time><div><h3>古宇利海洋塔 <a class="intro" href="https://okinawa.letsgojp.com/archives/762019/" target="_blank" rel="noopener">介紹 ↗</a></h3>
       <p>今歸仁村古宇利538。10:00–18:00（最後入園 17:30），無公休。海拔 82m 展望台看古宇利島的海。</p>
       <div class="facts"><span>大人 <b>¥1,000</b></span></div></div></li>
-    <li><time>15:00</time><div><h3>蝦蝦飯 · KOURI SHRIMP <span class="changed">調整：改下午點心</span></h3>
+    <li><time>15:00</time><div><h3>蝦蝦飯 · KOURI SHRIMP <span class="changed">調整：改下午點心</span> <a class="intro" href="https://travel.yam.com/article/115580" target="_blank" rel="noopener">介紹 ↗</a></h3>
       <p>今歸仁村古宇利314。<b>11:00–16:00</b>，無公休。夏威夷風蒜味蝦。因為 16:00 就關，從晚餐改到下午吃（中午吃了牛排，可以點一份分著吃）。</p></div></li>
     <li class="drive">島上 約 5 分</li>
-    <li><time>15:30</time><div><h3>入住 One Suite THE GRAND <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=One+Suite+THE+GRAND+%E5%8F%A4%E5%AE%87%E5%88%A9" target="_blank" rel="noopener">地圖 ↗</a></h3>
+    <li><time>15:30</time><div><h3>入住 One Suite THE GRAND <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=One+Suite+THE+GRAND+%E5%8F%A4%E5%AE%87%E5%88%A9" target="_blank" rel="noopener">地圖 ↗</a> <a class="intro" href="https://www.gltjp.com/zh-hant/directory/item/17434/" target="_blank" rel="noopener">介紹 ↗</a></h3>
       <p>全客房面海的成人度假村，有無邊際泳池。古宇利島西側面東海，可以看夕陽（約 18:50）。</p></div></li>
     <li><time>18:30</time><div><h3>晚餐（替代方案）<span class="changed">調整</span></h3>
-      <p><b>A. 焼肉 もとぶ牧場 名護店</b>：名護市宇茂佐の森4-2-14，11:30–22:00（LO 21:30），本部牛燒肉，可網路訂位。目前公告週四公休，週二有開。從飯店約 30 分。</p>
+      <p><b>A. 焼肉 もとぶ牧場 名護店</b> <a class="intro" href="https://today.line.me/tw/v2/article/Mp8EaM" target="_blank" rel="noopener">介紹 ↗</a>：名護市宇茂佐の森4-2-14，11:30–22:00（LO 21:30），本部牛燒肉，可網路訂位。目前公告週四公休，週二有開。從飯店約 30 分。</p>
       <p><b>B. 留在飯店</b>：飯店餐廳或客房服務，喝酒也不用擔心開車。</p>
       <p><b>C. 買回飯店</b>：回程經過名護時在超市買熟食、沖繩麵便當。</p>
-      <p class="muted">Yakiniku Kochan（名護市為又）週二公休；岸本食堂 11:00–17:00，移到第四天當午餐備案。</p></div></li>
+      <p class="muted">Yakiniku Kochan（名護市為又）週二公休 <a class="intro" href="https://autoreserve.com/zh-tw/restaurants/HWjxcZHcMP49qTo396kv" target="_blank" rel="noopener">Kochan 介紹 ↗</a>；岸本食堂 11:00–17:00，移到第四天當午餐備案。</p></div></li>
   </ol>
 </section>
 
@@ -368,16 +371,16 @@ html{scroll-behavior:smooth}
   <ol class="tl">
     <li><time>08:30</time><div><h3>出發</h3></div></li>
     <li class="drive">古宇利島 → 海洋博公園 約 30 分</li>
-    <li><time>09:00</time><div><h3>沖繩美麗海水族館 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=%E6%B2%96%E7%B8%84%E7%BE%8E%E3%82%89%E6%B5%B7%E6%B0%B4%E6%97%8F%E9%A4%A8" target="_blank" rel="noopener">地圖 ↗</a></h3>
+    <li><time>09:00</time><div><h3>沖繩美麗海水族館 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=%E6%B2%96%E7%B8%84%E7%BE%8E%E3%82%89%E6%B5%B7%E6%B0%B4%E6%97%8F%E9%A4%A8" target="_blank" rel="noopener">地圖 ↗</a> <a class="intro" href="https://okinawa.letsgojp.com/archives/17071/" target="_blank" rel="noopener">介紹 ↗</a></h3>
       <p>8:30–18:30（17:30 停止入館）。早上人比較少，先看「黑潮之海」大水槽。</p>
       <div class="facts"><span>大人 <b>¥2,180</b></span></div></div></li>
-    <li><time>11:00</time><div><h3>午餐 · Café「Ocean Blue」</h3>
+    <li><time>11:00</time><div><h3>午餐 · Café「Ocean Blue」 <a class="intro" href="https://www.fun-japan.jp/tw/articles/10728" target="_blank" rel="noopener">介紹 ↗</a></h3>
       <p>館內黑潮之海大水槽旁的咖啡廳，水槽邊座位先到先得，建議 11 點前就去排。</p>
-      <p class="muted">備案：岸本食堂 八重岳店（本部町伊野波350-1，11:00–17:00，15:00 後賣完就收，約 20 分車程），老牌沖繩麵 ¥800–1,050。</p></div></li>
+      <p class="muted">備案：岸本食堂 八重岳店（本部町 <a class="intro" href="https://travel.yam.com/Article.aspx?sn=75685" target="_blank" rel="noopener">介紹 ↗</a>伊野波350-1，11:00–17:00，15:00 後賣完就收，約 20 分車程），老牌沖繩麵 ¥800–1,050。</p></div></li>
     <li><time>12:30</time><div><h3>海洋博公園散步</h3>
-      <p>翡翠海灘（Emerald Beach）、免費的 Okichan 劇場海豚秀、沖繩鄉土村。時間夠可以去附近的備瀨福木林道（約 10 分）。</p></div></li>
+      <p>翡翠海灘（Emerald Beach）、免費的 Okichan 劇場海豚秀、沖繩鄉土村。時間夠可以去附近的備瀨福木林道（約 10 分） <a class="intro" href="https://www.ana.co.jp/zh/tw/japan-travel-planner/okinawa/0000016.html" target="_blank" rel="noopener">介紹 ↗</a>。</p></div></li>
     <li><time>16:00</time><div><h3>回飯店・泳池・夕陽</h3></div></li>
-    <li><time>18:30</time><div><h3>晚餐 · One Suite THE GRAND 飯店晚餐 <span class="tag t-ok">已預訂</span></h3>
+    <li><time>18:30</time><div><h3>晚餐 · One Suite THE GRAND 飯店晚餐 <span class="tag t-ok">已預訂</span> <a class="intro" href="https://www.gltjp.com/zh-hant/directory/item/17434/" target="_blank" rel="noopener">介紹 ↗</a></h3>
       <p>¥25,410 × 3 = ¥76,230，已含在住宿金額裡。</p></div></li>
   </ol>
 </section>
@@ -392,16 +395,16 @@ html{scroll-behavior:smooth}
   <ol class="tl">
     <li><time>09:45</time><div><h3>退房出發</h3><p>One Suite 退房時間 11:00，這天行程較滿，建議早點出發。</p></div></li>
     <li class="drive">古宇利島 → 恩納村瀨良垣 約 50 分</li>
-    <li><time>10:40</time><div><h3>BEB5 沖繩瀨良垣 放行李</h3></div></li>
+    <li><time>10:40</time><div><h3>BEB5 沖繩瀨良垣 放行李 <a class="intro" href="https://www.marieclaire.com.tw/lifestyle/travel/66969" target="_blank" rel="noopener">介紹 ↗</a></h3></div></li>
     <li class="drive">瀨良垣 → Bios之丘 約 20 分</li>
-    <li><time>11:00</time><div><h3>Bios之丘 <span class="changed">調整：提前</span> <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=%E3%83%93%E3%82%AA%E3%82%B9%E3%81%AE%E4%B8%98" target="_blank" rel="noopener">地圖 ↗</a></h3>
+    <li><time>11:00</time><div><h3>Bios之丘 <span class="changed">調整：提前</span> <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=%E3%83%93%E3%82%AA%E3%82%B9%E3%81%AE%E4%B8%98" target="_blank" rel="noopener">地圖 ↗</a> <a class="intro" href="https://okinawa.letsgojp.com/archives/867040/" target="_blank" rel="noopener">介紹 ↗</a></h3>
       <p>宇流麻市石川嘉手苅961-30。<b>最後入園 16:15</b>。湖水觀賞舟含在門票裡，另有水牛車、獨木舟。部分週二休園，4/1 週四應該有開，出發前看官網開園月曆。</p>
       <div class="facts"><span>大人 <b>¥2,200</b>（含湖水觀賞舟）</span><span>停留 <b>約 1.5 小時</b></span></div></div></li>
     <li class="drive">Bios之丘 → 東南植物樂園 約 25 分</li>
-    <li><time>13:00</time><div><h3>午餐 · PEACE（東南植物樂園內）</h3>
+    <li><time>13:00</time><div><h3>午餐 · PEACE（東南植物樂園內） <a class="intro" href="https://gofunit.com/%e6%9d%b1%e5%8d%97%e6%a4%8d%e7%89%a9%e6%a8%82%e5%9c%92/" target="_blank" rel="noopener">介紹（含餐廳） ↗</a></h3>
       <p>午餐 11:30–14:30（LO 14:00），<b>週二、三公休</b>，4/1 週四有開。</p>
       <div class="facts"><span>只吃午餐 <b>大人 ¥2,800</b></span><span>入園＋午餐 <b>大人 ¥3,800</b></span></div></div></li>
-    <li><time>14:00</time><div><h3>東南植物樂園 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E5%8D%97%E6%A4%8D%E7%89%A9%E6%A5%BD%E5%9C%92" target="_blank" rel="noopener">地圖 ↗</a></h3>
+    <li><time>14:00</time><div><h3>東南植物樂園 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E5%8D%97%E6%A4%8D%E7%89%A9%E6%A5%BD%E5%9C%92" target="_blank" rel="noopener">地圖 ↗</a> <a class="intro" href="https://gofunit.com/%e6%9d%b1%e5%8d%97%e6%a4%8d%e7%89%a9%e6%a8%82%e5%9c%92/" target="_blank" rel="noopener">介紹 ↗</a></h3>
       <p>沖繩市。白天約 9:30–18:00。<b>「南國燈光節 2026–2027」辦到 2027/5/23</b>，傍晚有燈光，想看可以待到天黑再回飯店。</p></div></li>
     <li class="drive">東南植物樂園 → 瀨良垣 約 35 分</li>
     <li><time>晚上</time><div><h3>回 BEB5 沖繩瀨良垣</h3><p class="muted">晚餐原規劃未定，可在飯店或恩納村附近吃。</p></div></li>
@@ -419,16 +422,16 @@ html{scroll-behavior:smooth}
   <ol class="tl">
     <li><time>09:15</time><div><h3>出發</h3></div></li>
     <li class="drive">瀨良垣 → 琉球村 約 20 分</li>
-    <li><time>09:30</time><div><h3>琉球村 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=%E7%90%89%E7%90%83%E6%9D%91+%E6%81%A9%E7%B4%8D" target="_blank" rel="noopener">地圖 ↗</a></h3>
+    <li><time>09:30</time><div><h3>琉球村 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=%E7%90%89%E7%90%83%E6%9D%91+%E6%81%A9%E7%B4%8D" target="_blank" rel="noopener">地圖 ↗</a> <a class="intro" href="https://okinawa.letsgojp.com/archives/884774/" target="_blank" rel="noopener">介紹 ↗</a></h3>
       <p>恩納村山田1130。9:30–17:00，無公休。古民家、傳統工藝、Eisa 太鼓舞表演（表演時間到現場看看板）。</p>
       <div class="facts"><span>大人 <b>¥2,000</b></span><span>停留 <b>約 2 小時</b></span></div></div></li>
     <li class="drive">琉球村 → 讀谷 都屋漁港 約 20 分</li>
-    <li><time>12:00</time><div><h3>午餐 · 讀谷村漁協 海人食堂</h3>
+    <li><time>12:00</time><div><h3>午餐 · 讀谷村漁協 海人食堂 <a class="intro" href="https://www.funtime.com.tw/blog/limone/%e7%9b%9b%e5%a4%8f%e6%b2%96%e7%b9%a9%e2%9d%a4%e8%ae%80%e8%b0%b7%e6%9d%91%e6%b5%b7%e4%ba%ba%e9%a3%9f%e5%a0%82%e5%97%91%e6%b5%b7%e9%ae%ae%e3%80%81%e6%b2%96%e7%b9%a9%e6%9c%80%e5%a4%a7aeon-mall%e3%80%81" target="_blank" rel="noopener">介紹 ↗</a></h3>
       <p>漁會經營的食堂，有炸鮪魚排、海葡萄丼、水雲丼、天婦羅。營業時間各網站寫法不一，中午去最穩；電話 098-956-1640。</p></div></li>
     <li class="drive">讀谷 → 北谷 約 25 分</li>
-    <li><time>14:00</time><div><h3>美國村 American Village</h3>
+    <li><time>14:00</time><div><h3>美國村 American Village <a class="intro" href="https://www.ana.co.jp/zh/tw/japan-travel-planner/okinawa/0000010.html" target="_blank" rel="noopener">介紹 ↗</a></h3>
       <p>北谷町美濱。逛街、海邊步道，傍晚在 Sunset Beach 看夕陽。</p></div></li>
-    <li><time>16:30</time><div><h3>浜屋沖繩麵 <span class="changed">調整：加入</span></h3>
+    <li><time>16:30</time><div><h3>浜屋沖繩麵 <span class="changed">調整：加入</span> <a class="intro" href="https://travel.yam.com/article/112236" target="_blank" rel="noopener">介紹 ↗</a></h3>
       <p>北谷，離美國村約 10 分車程。10:00–17:30，要在關門前到。份量不大，當下午點心剛好。</p></div></li>
     <li><time>晚上</time><div><h3>美國村晚餐 → 回 BEB5</h3><p class="muted">美國村 → 瀨良垣約 45 分。</p></div></li>
   </ol>
@@ -442,13 +445,13 @@ html{scroll-behavior:smooth}
     <div class="day-meta">恩納村 → 那霸機場</div>
   </div>
   <ol class="tl">
-    <li><time>08:30</time><div><h3>萬座毛 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=%E4%B8%87%E5%BA%A7%E6%AF%9B" target="_blank" rel="noopener">地圖 ↗</a></h3>
+    <li><time>08:30</time><div><h3>萬座毛 <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=%E4%B8%87%E5%BA%A7%E6%AF%9B" target="_blank" rel="noopener">地圖 ↗</a> <a class="intro" href="https://okinawa.letsgojp.com/archives/780996/" target="_blank" rel="noopener">介紹 ↗</a></h3>
       <p>恩納村恩納2767，從 BEB5 約 10 分。8:00 開放，步道約 300m、走一圈 15 分鐘。早上人少。</p>
       <div class="facts"><span>觀覽費 <b>¥100</b></span></div></div></li>
     <li><time>10:00</time><div><h3>回飯店退房</h3></div></li>
     <li><time>11:00</time><div><h3>出發回那霸</h3><p>沖繩自動車道（屋嘉 IC 或石川 IC 上）→ 那霸 IC。<b>還車前加滿油</b>，營業所附近就有加油站。</p></div></li>
     <li class="drive">恩納村 → Sky Rent a Car 營業所 約 1 小時 10 分</li>
-    <li><time>12:30</time><div><h3>還車 · Sky Rent a Car</h3><p>那霸市具志1-23-8，坐接駁車約 9 分鐘到機場。</p></div></li>
+    <li><time>12:30</time><div><h3>還車 · Sky Rent a Car <a class="intro" href="https://www.colatour.com.tw/webDM/trip/travel-service/rentcar/oka_sky.html" target="_blank" rel="noopener">還車流程 ↗</a></h3><p>那霸市具志1-23-8，坐接駁車約 9 分鐘到機場。</p></div></li>
     <li><time>13:30</time><div><h3>國際線報到</h3><p>起飛前 2 小時到。</p></div></li>
     <li><time>15:50</time><div><h3>JX871 沖繩 → 桃園 T1</h3><p><b>16:25</b> 抵達桃園。</p></div></li>
   </ol>
@@ -461,8 +464,8 @@ html{scroll-behavior:smooth}
   <div class="food">
     <div class="card"><span class="tag t-coral">待確認</span><h3>太古豬拉麵</h3><p class="muted" style="margin:0;font-size:14px">查不到這個店名。可能是指「阿古豬（あぐー豚）」拉麵，有日文店名或地址的話再補上。</p></div>
     <div class="card"><span class="tag t-sun">燒烤</span><h3>燒肉</h3><p class="muted" style="margin:0;font-size:14px">Yakiniku Kochan（名護市為又，週二公休、週一三四五 16:00 起）在這趟行程裡排不進去；可改 もとぶ牧場 名護店（第三天晚餐）。</p></div>
-    <div class="card"><span class="tag t-ok">D3</span><h3>蝦蝦飯 KOURI SHRIMP</h3><p class="muted" style="margin:0;font-size:14px">古宇利島，11:00–16:00，排在第三天下午。</p></div>
-    <div class="card"><span class="tag t-ok">D6</span><h3>浜屋沖繩麵</h3><p class="muted" style="margin:0;font-size:14px">北谷，離美國村約 10 分，10:00–17:30，排在第六天下午。</p></div>
+    <div class="card"><span class="tag t-ok">D3</span><h3>蝦蝦飯 KOURI SHRIMP <a class="intro" href="https://travel.yam.com/article/115580" target="_blank" rel="noopener">介紹 ↗</a></h3><p class="muted" style="margin:0;font-size:14px">古宇利島，11:00–16:00，排在第三天下午。</p></div>
+    <div class="card"><span class="tag t-ok">D6</span><h3>浜屋沖繩麵 <a class="intro" href="https://travel.yam.com/article/112236" target="_blank" rel="noopener">介紹 ↗</a></h3><p class="muted" style="margin:0;font-size:14px">北谷，離美國村約 10 分，10:00–17:30，排在第六天下午。</p></div>
   </div>
 </section>
 
@@ -522,7 +525,7 @@ html{scroll-behavior:smooth}
     <li><a href="https://www.nta.co.jp/kokunai/okinawa/churaumi/" target="_blank" rel="noopener">美麗海水族館（日本旅行）</a></li>
     <li><a href="https://www.triptojapan.com/ja/places/ryukyu-mura-ryukyu-village/AbJMge3vSGKfHna2g3URKg" target="_blank" rel="noopener">琉球村</a>、<a href="https://retty.me/restaurant/100000058497/" target="_blank" rel="noopener">海人食堂（Retty）</a>、<a href="https://bobbytravel.tw/okinawa-food/" target="_blank" rel="noopener">浜屋・大家營業時間（波比看世界）</a></li>
   </ul>
-  <p>車程為一般路況估計，實際以導航為準。</p>
+  <p>車程為一般路況估計，實際以導航為準。各景點與餐廳的「介紹」連結以中文旅遊媒體和熱門部落格為主（樂吃購！日本、輕旅行、FUN! JAPAN、Funliday、ANA 旅遊指南等）；Aero Beach Table 找不到中文介紹，連到日文訂位頁。</p>
 </section>
 
 <footer>2027 沖繩七日 · 整理於 2026/10/17</footer>
